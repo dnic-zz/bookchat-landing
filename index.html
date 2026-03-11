@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookChat — WhatsApp Booking Assistant</title>
+  <meta name="description" content="BookChat is an AI-powered booking assistant on WhatsApp. Make, check, modify and cancel bookings through natural conversation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="url(#logo-grad)"/>
+          <path d="M8 11C8 9.89543 8.89543 9 10 9H22C23.1046 9 24 9.89543 24 11V19C24 20.1046 23.1046 21 22 21H18L14 25V21H10C8.89543 21 8 20.1046 8 19V11Z" fill="white" fill-opacity="0.95"/>
+          <circle cx="12.5" cy="15" r="1.25" fill="#6C3FE3"/>
+          <circle cx="16" cy="15" r="1.25" fill="#6C3FE3"/>
+          <circle cx="19.5" cy="15" r="1.25" fill="#6C3FE3"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32">
+              <stop stop-color="#8B5CF6"/>
+              <stop offset="1" stop-color="#6C3FE3"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>BookChat</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#payments">Payments</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#demo">Demo</a>
+        <a href="#cta" class="btn btn-sm">Get Started</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#features">Features</a>
+    <a href="#payments">Payments</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#demo">Demo</a>
+    <a href="#cta" class="btn">Get Started</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Powered by Claude AI
+        </div>
+        <h1>Bookings made<br><span class="gradient-text">conversational.</span></h1>
+        <p class="hero-sub">BookChat is an AI-powered assistant that lives on WhatsApp. Your customers book, reschedule, and cancel — all through natural conversation.</p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-lg">Start Free Trial</a>
+          <a href="#demo" class="btn btn-outline btn-lg">See it in action</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">&lt; 3s</span>
+            <span class="stat-label">Avg. response time</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Always available</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">0</span>
+            <span class="stat-label">Apps to download</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="chat-header">
+              <div class="chat-avatar">B</div>
+              <div>
+                <div class="chat-name">BookChat</div>
+                <div class="chat-status">Online</div>
+              </div>
+            </div>
+            <div class="chat-messages">
+              <div class="msg msg-sent">
+                <p>Hi, I'd like to book a table for 2 this Saturday at 7pm</p>
+                <span class="msg-time">18:32</span>
+              </div>
+              <div class="msg msg-received">
+                <p>I'd love to help you with that! Let me check availability for Saturday at 7pm for 2 guests.</p>
+                <span class="msg-time">18:32</span>
+              </div>
+              <div class="msg msg-received">
+                <p>Great news, Saturday at 7pm is available. Should I book a table for 2 under your name?</p>
+                <span class="msg-time">18:32</span>
+              </div>
+              <div class="msg msg-sent">
+                <p>Yes please, under Dom</p>
+                <span class="msg-time">18:33</span>
+              </div>
+              <div class="msg msg-received">
+                <p>All set! Table for 2 booked this Saturday at 7pm under Dom. You'll get a reminder on Friday. See you there!</p>
+                <span class="msg-time">18:33</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Features</span>
+        <h2>Everything your<br>booking system needs.</h2>
+        <p>No new apps. No learning curve. Just WhatsApp — the app your customers already use every day.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3>Natural Conversation</h3>
+          <p>No menus, no forms. Customers just type what they need in plain language and BookChat understands.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>AI-Powered Intelligence</h3>
+          <p>Built on Claude AI, BookChat handles complex requests, asks clarifying questions, and confirms before acting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>Full Booking Control</h3>
+          <p>Make, check, modify, and cancel bookings. Your customers manage everything from one chat thread.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Instant Responses</h3>
+          <p>Sub-3-second reply times. No hold music, no waiting rooms. Customers get answers immediately.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Zero Friction</h3>
+          <p>No app downloads, no account creation. Customers message your WhatsApp number and start booking.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3>Always On</h3>
+          <p>BookChat works 24/7, handling bookings while you sleep. Never miss a customer again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How it works</span>
+        <h2>Three steps.<br>That's it.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3>Customer messages you</h3>
+            <p>A customer sends a WhatsApp message to your business number. No special format needed — just plain language.</p>
+          </div>
+          <div class="step-visual">
+            <div class="mini-chat">
+              <div class="msg msg-sent"><p>Hey, can I book a haircut for tomorrow morning?</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3>AI understands & acts</h3>
+            <p>BookChat processes the message with Claude AI, checks availability, and responds naturally — all in under 3 seconds.</p>
+          </div>
+          <div class="step-visual">
+            <div class="processing-visual">
+              <div class="proc-step">
+                <span class="proc-dot"></span>
+                Message received
+              </div>
+              <div class="proc-step">
+                <span class="proc-dot"></span>
+                AI processing
+              </div>
+              <div class="proc-step">
+                <span class="proc-dot"></span>
+                Checking availability
+              </div>
+              <div class="proc-step active">
+                <span class="proc-dot"></span>
+                Sending response
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3>Booking confirmed</h3>
+            <p>The customer gets a confirmation in the same chat. They can modify or cancel anytime — just by asking.</p>
+          </div>
+          <div class="step-visual">
+            <div class="mini-chat">
+              <div class="msg msg-received"><p>You're all set! Haircut booked for tomorrow at 10am. Reply anytime to change or cancel.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo / Chat Preview -->
+  <section class="demo-section" id="demo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Live Preview</span>
+        <h2>See BookChat<br><span class="gradient-text">in action.</span></h2>
+        <p>A real conversation flow — from first message to confirmed booking.</p>
+      </div>
+      <div class="demo-container">
+        <div class="demo-phone">
+          <div class="phone-mockup large">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="chat-header">
+                <div class="chat-avatar">B</div>
+                <div>
+                  <div class="chat-name">BookChat</div>
+                  <div class="chat-status">Online</div>
+                </div>
+              </div>
+              <div class="chat-messages demo-chat" id="demo-chat">
+                <!-- Messages will animate in -->
+              </div>
+              <div class="chat-input-bar">
+                <div class="chat-input-placeholder">Type a message</div>
+                <div class="chat-send-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QR Payment Integration -->
+  <section class="payments-section" id="payments">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Payments</span>
+        <h2>Scan. Pay. Done.<br><span class="gradient-text">Across Asia.</span></h2>
+        <p>Integrated QR code payments. Customers scan right from the chat — no redirects, no hassle. One platform, every major Asian payment network.</p>
+      </div>
+
+      <div class="payments-showcase">
+        <!-- Phone with QR payment -->
+        <div class="payment-phone-wrap">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="chat-header">
+                <div class="chat-avatar">B</div>
+                <div>
+                  <div class="chat-name">BookChat</div>
+                  <div class="chat-status">Online</div>
+                </div>
+              </div>
+              <div class="chat-messages">
+                <div class="msg msg-received">
+                  <p>Your massage is booked for Saturday 3pm. The total is SGD 80. Here's your payment QR code:</p>
+                  <span class="msg-time">14:22</span>
+                </div>
+                <div class="msg msg-received qr-msg">
+                  <div class="qr-code-mockup">
+                    <div class="qr-grid">
+                      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- QR corner squares -->
+                        <rect x="8" y="8" width="28" height="28" rx="4" stroke="white" stroke-width="3" fill="none"/>
+                        <rect x="14" y="14" width="16" height="16" rx="2" fill="white"/>
+                        <rect x="84" y="8" width="28" height="28" rx="4" stroke="white" stroke-width="3" fill="none"/>
+                        <rect x="90" y="14" width="16" height="16" rx="2" fill="white"/>
+                        <rect x="8" y="84" width="28" height="28" rx="4" stroke="white" stroke-width="3" fill="none"/>
+                        <rect x="14" y="90" width="16" height="16" rx="2" fill="white"/>
+                        <!-- QR data pattern -->
+                        <rect x="42" y="8" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="54" y="8" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="66" y="8" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="42" y="20" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="60" y="20" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="72" y="20" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="48" y="32" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="60" y="32" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="8" y="42" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="20" y="42" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="32" y="42" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="48" y="42" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="60" y="42" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="78" y="42" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="96" y="42" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="108" y="42" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="8" y="54" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="24" y="54" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="42" y="54" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="54" y="54" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="72" y="54" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="84" y="54" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="102" y="54" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="14" y="66" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="30" y="66" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="48" y="66" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="66" y="66" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="84" y="66" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="96" y="66" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="42" y="78" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="54" y="78" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="72" y="78" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="90" y="78" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="108" y="78" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="42" y="90" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="60" y="90" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="78" y="90" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="96" y="90" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="48" y="102" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="66" y="102" width="6" height="6" fill="white" opacity="0.9"/>
+                        <rect x="84" y="102" width="6" height="6" fill="white" opacity="0.7"/>
+                        <rect x="102" y="102" width="6" height="6" fill="white" opacity="0.9"/>
+                        <!-- Center logo area -->
+                        <rect x="45" y="45" width="30" height="30" rx="6" fill="#8B5CF6"/>
+                        <text x="60" y="65" text-anchor="middle" fill="white" font-size="16" font-weight="bold">B</text>
+                      </svg>
+                    </div>
+                    <div class="qr-label">PayNow &middot; SGD 80.00</div>
+                  </div>
+                  <span class="msg-time">14:22</span>
+                </div>
+                <div class="msg msg-sent">
+                  <p>Paid!</p>
+                  <span class="msg-time">14:23</span>
+                </div>
+                <div class="msg msg-received">
+                  <p>Payment received! You're all confirmed for Saturday at 3pm. See you soon!</p>
+                  <span class="msg-time">14:23</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment networks grid -->
+        <div class="payment-networks">
+          <h3>One integration.<br>Every payment network.</h3>
+          <p class="payment-networks-sub">BookChat connects to the QR payment systems your customers already use daily.</p>
+          <div class="network-grid">
+            <div class="network-card">
+              <div class="network-flag">🇸🇬</div>
+              <div class="network-info">
+                <span class="network-name">PayNow</span>
+                <span class="network-country">Singapore</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇹🇭</div>
+              <div class="network-info">
+                <span class="network-name">PromptPay</span>
+                <span class="network-country">Thailand</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇮🇩</div>
+              <div class="network-info">
+                <span class="network-name">QRIS</span>
+                <span class="network-country">Indonesia</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇨🇳</div>
+              <div class="network-info">
+                <span class="network-name">WeChat Pay / Alipay</span>
+                <span class="network-country">China</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇲🇾</div>
+              <div class="network-info">
+                <span class="network-name">DuitNow QR</span>
+                <span class="network-country">Malaysia</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇵🇭</div>
+              <div class="network-info">
+                <span class="network-name">QR Ph (InstaPay)</span>
+                <span class="network-country">Philippines</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇻🇳</div>
+              <div class="network-info">
+                <span class="network-name">VietQR</span>
+                <span class="network-country">Vietnam</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇮🇳</div>
+              <div class="network-info">
+                <span class="network-name">UPI</span>
+                <span class="network-country">India</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇯🇵</div>
+              <div class="network-info">
+                <span class="network-name">PayPay</span>
+                <span class="network-country">Japan</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇰🇷</div>
+              <div class="network-info">
+                <span class="network-name">Kakao Pay</span>
+                <span class="network-country">South Korea</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇭🇰</div>
+              <div class="network-info">
+                <span class="network-name">FPS QR</span>
+                <span class="network-country">Hong Kong</span>
+              </div>
+            </div>
+            <div class="network-card">
+              <div class="network-flag">🇹🇼</div>
+              <div class="network-info">
+                <span class="network-name">Taiwan Pay</span>
+                <span class="network-country">Taiwan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Dashboard -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Dashboard</span>
+        <h2>Your business.<br><span class="gradient-text">At a glance.</span></h2>
+        <p>See every booking, payment, and customer interaction in one clean dashboard built for salon owners, studios, and service businesses.</p>
+      </div>
+
+      <div class="dashboard-window">
+        <div class="dashboard-chrome">
+          <div class="chrome-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="chrome-url">app.bookchat.io/dashboard</div>
+        </div>
+        <div class="dashboard-body">
+          <!-- Sidebar -->
+          <div class="dash-sidebar">
+            <div class="dash-logo">
+              <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <rect width="32" height="32" rx="8" fill="url(#logo-grad3)"/>
+                <path d="M8 11C8 9.89543 8.89543 9 10 9H22C23.1046 9 24 9.89543 24 11V19C24 20.1046 23.1046 21 22 21H18L14 25V21H10C8.89543 21 8 20.1046 8 19V11Z" fill="white" fill-opacity="0.95"/>
+                <defs>
+                  <linearGradient id="logo-grad3" x1="0" y1="0" x2="32" y2="32">
+                    <stop stop-color="#8B5CF6"/>
+                    <stop offset="1" stop-color="#6C3FE3"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span>BookChat</span>
+            </div>
+            <nav class="dash-nav">
+              <a class="dash-nav-item active">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+                Dashboard
+              </a>
+              <a class="dash-nav-item">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+                Bookings
+              </a>
+              <a class="dash-nav-item">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+                Customers
+              </a>
+              <a class="dash-nav-item">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                Payments
+              </a>
+              <a class="dash-nav-item">
+                <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+                Settings
+              </a>
+            </nav>
+            <div class="dash-business">
+              <div class="dash-business-avatar">Z</div>
+              <div>
+                <div class="dash-business-name">Zen Yoga Studio</div>
+                <div class="dash-business-plan">Pro Plan</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="dash-main">
+            <!-- Stats Row -->
+            <div class="dash-stats-row">
+              <div class="dash-stat-card">
+                <span class="dash-stat-label">Today's Bookings</span>
+                <span class="dash-stat-value">12</span>
+                <span class="dash-stat-change up">+3 from yesterday</span>
+              </div>
+              <div class="dash-stat-card">
+                <span class="dash-stat-label">Revenue (This Week)</span>
+                <span class="dash-stat-value">SGD 2,480</span>
+                <span class="dash-stat-change up">+18% vs last week</span>
+              </div>
+              <div class="dash-stat-card">
+                <span class="dash-stat-label">Pending Payments</span>
+                <span class="dash-stat-value">3</span>
+                <span class="dash-stat-change neutral">SGD 240 outstanding</span>
+              </div>
+              <div class="dash-stat-card">
+                <span class="dash-stat-label">Conversations</span>
+                <span class="dash-stat-value">47</span>
+                <span class="dash-stat-change up">98% resolved by AI</span>
+              </div>
+            </div>
+
+            <!-- Bookings Table -->
+            <div class="dash-table-card">
+              <div class="dash-table-header">
+                <h4>Upcoming Bookings</h4>
+                <div class="dash-table-filters">
+                  <button class="dash-filter active">All</button>
+                  <button class="dash-filter">Confirmed</button>
+                  <button class="dash-filter">Pending</button>
+                  <button class="dash-filter">Cancelled</button>
+                </div>
+              </div>
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Customer</th>
+                    <th>Service</th>
+                    <th>Date & Time</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <div class="customer-avatar" style="background: #6C3FE3;">S</div>
+                        <div>
+                          <div class="customer-name">Sarah Chen</div>
+                          <div class="customer-phone">+65 9123 4567</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Vinyasa Flow</td>
+                    <td>
+                      <div class="date-cell">
+                        <span>Today, 3:00 PM</span>
+                      </div>
+                    </td>
+                    <td><span class="payment-badge paid">Paid</span></td>
+                    <td><span class="status-badge confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <div class="customer-avatar" style="background: #EC4899;">A</div>
+                        <div>
+                          <div class="customer-name">Arun Patel</div>
+                          <div class="customer-phone">+65 8234 5678</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Hot Yoga</td>
+                    <td>
+                      <div class="date-cell">
+                        <span>Today, 5:30 PM</span>
+                      </div>
+                    </td>
+                    <td><span class="payment-badge paid">Paid</span></td>
+                    <td><span class="status-badge confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <div class="customer-avatar" style="background: #F59E0B;">M</div>
+                        <div>
+                          <div class="customer-name">Mei Lin Wong</div>
+                          <div class="customer-phone">+65 9876 5432</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Sunrise Flow</td>
+                    <td>
+                      <div class="date-cell">
+                        <span>Tomorrow, 7:30 AM</span>
+                      </div>
+                    </td>
+                    <td><span class="payment-badge pending">Pending</span></td>
+                    <td><span class="status-badge pending">Pending</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <div class="customer-avatar" style="background: #10B981;">T</div>
+                        <div>
+                          <div class="customer-name">Taro Yamamoto</div>
+                          <div class="customer-phone">+65 8765 4321</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Yin Yoga</td>
+                    <td>
+                      <div class="date-cell">
+                        <span>Tomorrow, 10:00 AM</span>
+                      </div>
+                    </td>
+                    <td><span class="payment-badge paid">Paid</span></td>
+                    <td><span class="status-badge confirmed">Confirmed</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <div class="customer-avatar" style="background: #8B5CF6;">R</div>
+                        <div>
+                          <div class="customer-name">Rina Sato</div>
+                          <div class="customer-phone">+65 9111 2233</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Vinyasa Flow</td>
+                    <td>
+                      <div class="date-cell">
+                        <span>Tomorrow, 3:00 PM</span>
+                      </div>
+                    </td>
+                    <td><span class="payment-badge unpaid">Unpaid</span></td>
+                    <td><span class="status-badge cancelled">Cancelled</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="customer-cell">
+                        <div class="customer-avatar" style="background: #3B82F6;">D</div>
+                        <div>
+                          <div class="customer-name">Dom</div>
+                          <div class="customer-phone">+65 9876 1234</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Hot Yoga</td>
+                    <td>
+                      <div class="date-cell">
+                        <span>Fri, 9:00 AM</span>
+                      </div>
+                    </td>
+                    <td><span class="payment-badge paid">Paid</span></td>
+                    <td><span class="status-badge confirmed">Confirmed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="tech-section">
+    <div class="container">
+      <div class="tech-inner">
+        <div class="tech-text">
+          <span class="section-tag">Under the hood</span>
+          <h2>Built with the<br>best in class.</h2>
+          <p>BookChat combines the WhatsApp Business API with Claude AI to deliver intelligent, reliable booking experiences at scale.</p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 0 1-4.106-1.138l-.294-.176-2.862.85.85-2.862-.176-.294A7.96 7.96 0 0 1 4 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+              </svg>
+            </div>
+            <h4>WhatsApp Cloud API</h4>
+            <p>Direct integration with Meta's official business platform</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h4>Claude AI</h4>
+            <p>Anthropic's most capable model for natural understanding</p>
+          </div>
+          <div class="tech-card">
+            <div class="tech-card-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 20V10M12 20V4M6 20v-6"/>
+              </svg>
+            </div>
+            <h4>TypeScript</h4>
+            <p>Type-safe, production-ready backend architecture</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="cta">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-glow"></div>
+        <h2>Ready to automate<br>your bookings?</h2>
+        <p>Set up BookChat in minutes. Let AI handle your bookings while you focus on what matters.</p>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-lg btn-white">Get Started Free</a>
+        </div>
+        <span class="cta-note">No credit card required</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="url(#logo-grad2)"/>
+            <path d="M8 11C8 9.89543 8.89543 9 10 9H22C23.1046 9 24 9.89543 24 11V19C24 20.1046 23.1046 21 22 21H18L14 25V21H10C8.89543 21 8 20.1046 8 19V11Z" fill="white" fill-opacity="0.95"/>
+            <circle cx="12.5" cy="15" r="1.25" fill="#6C3FE3"/>
+            <circle cx="16" cy="15" r="1.25" fill="#6C3FE3"/>
+            <circle cx="19.5" cy="15" r="1.25" fill="#6C3FE3"/>
+            <defs>
+              <linearGradient id="logo-grad2" x1="0" y1="0" x2="32" y2="32">
+                <stop stop-color="#8B5CF6"/>
+                <stop offset="1" stop-color="#6C3FE3"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>BookChat</span>
+        </a>
+        <p>AI-powered booking assistant on WhatsApp.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#demo">Demo</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 BookChat. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
